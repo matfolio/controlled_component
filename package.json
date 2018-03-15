@@ -17,5 +17,8 @@
     "react-dom": "^15.4.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
   }
 }

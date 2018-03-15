@@ -9,25 +9,33 @@ class App extends React.Component {
       super(props);
 		
       this.state = {
-         content: 'This would change....'
+         content: '....'
       }
 
       this.handleChange = this.handleChange.bind(this);
    };
 
    handleChange(event) {
-      this.setState({content: event.target.value});
+      this.setState({content: "Entered content is: " + event.target.value});
    }
 
    render() {
+       {/* Creates an Object to be passed to the component as props
+           pure prop config*/}
+      let operation = {
+         content : this.state.content,
+         handle_action : this.handleChange,
+         heading : this.props.mainheading,
+      }
       return (
          <div className="container">
-		     {/* child component passed with 3 properties */}
-            <Operation prop1 = {this.state.content} prop2 = {this.handleChange} prop3= {this.props.mainContent} />
+		     {/* child component passed with 3 properties as spread*/}
+            <Operation {...operation} />
          </div>
       );
    }
 }
 
-// could also pass properties from the main componet to the child componet----
-ReactDOM.render(<App mainContent="Main Component"/>, document.getElementById('app'));
+/* could also pass properties from the main component to the child component  */
+
+ReactDOM.render(<App mainheading="Main Component"/>, document.getElementById('app'));

@@ -8,11 +8,12 @@ import React from 'react';
 class Operation extends React.Component {
 
    render() {
+   	  let {...props} = this.props;
       return (
          <div>
-         	<h1>{this.props.prop3}</h1>
-            <input type ="text" onChange={this.props.prop2} />
-            <h3>{this.props.prop1}</h3>
+         	<h1>{props.heading}</h1>
+            <input type ="text" onChange={props.handle_action} />
+            <h3>{props.content}</h3>
          </div>
       );
    }

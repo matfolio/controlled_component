@@ -78,7 +78,7 @@
 	      var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
 	      _this.state = {
-	         content: 'This would change....'
+	         content: '....'
 	      };
 
 	      _this.handleChange = _this.handleChange.bind(_this);
@@ -88,15 +88,22 @@
 	   _createClass(App, [{
 	      key: 'handleChange',
 	      value: function handleChange(event) {
-	         this.setState({ content: event.target.value });
+	         this.setState({ content: "Entered content is: " + event.target.value });
 	      }
 	   }, {
 	      key: 'render',
 	      value: function render() {
+	         {/* Creates an Object to be passed to the component as props
+	               pure prop config*/}
+	         var operation = {
+	            content: this.state.content,
+	            handle_action: this.handleChange,
+	            heading: this.props.mainheading
+	         };
 	         return _react2.default.createElement(
 	            'div',
 	            { className: 'container' },
-	            _react2.default.createElement(_operation2.default, { prop1: this.state.content, prop2: this.handleChange, prop3: this.props.mainContent })
+	            _react2.default.createElement(_operation2.default, operation)
 	         );
 	      }
 	   }]);
@@ -104,10 +111,9 @@
 	   return App;
 	}(_react2.default.Component);
 
-	// could also pass properties from the main componet to the child componet----
+	/* could also pass properties from the main component to the child component  */
 
-
-	_reactDom2.default.render(_react2.default.createElement(App, { mainContent: 'Main Component' }), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(App, { mainheading: 'Main Component' }), document.getElementById('app'));
 
 /***/ }),
 /* 1 */
@@ -21891,6 +21897,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -21913,19 +21921,21 @@
 	   _createClass(Operation, [{
 	      key: "render",
 	      value: function render() {
+	         var props = _objectWithoutProperties(this.props, []);
+
 	         return _react2.default.createElement(
 	            "div",
 	            null,
 	            _react2.default.createElement(
 	               "h1",
 	               null,
-	               this.props.prop3
+	               props.heading
 	            ),
-	            _react2.default.createElement("input", { type: "text", onChange: this.props.prop2 }),
+	            _react2.default.createElement("input", { type: "text", onChange: props.handle_action }),
 	            _react2.default.createElement(
 	               "h3",
 	               null,
-	               this.props.prop1
+	               props.content
 	            )
 	         );
 	      }
