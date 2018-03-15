@@ -18,6 +18,20 @@ npm install --save-dev babel-loader
 ```
 npm install --save-dev babel-preset-env babel-preset-react
 ```
+#### Note: It should be pointed out though that, yeah babel does have support for Object Rest/spread
+#### which is said to be included in the preset-env formally preset-es2015, yet you still have to install to 
+#### dev dependency a plugin to support the object syntaces. 
+
+```
+npm install --save-dev babel-plugin-transform-object-rest-spread
+```
+#### Then in the webpack config file (check out the webpack-config.js) update it as:
+
+```
+plugins: [transform-object-rest-spread]
+```
+##### So you now have the flexibility to use Object rest/spread syntax as much as u desired.
+
 ```
 npm install webpack -g
 ```
