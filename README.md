@@ -9,6 +9,15 @@ npm install
 ```
 npm install react react-dom --save
 ```
+### We are going to be making use of loaders, Babel loader for Webpack as a development dependency
+#### Check out the Webpack config file on how to put these together.
+```
+npm install --save-dev babel-loader
+```
+### babel preset for ECMA2015 environment to support some es6 syntax and other for react environment
+```
+npm install --save-dev babel-preset-env babel-preset-react
+```
 ```
 npm install webpack -g
 ```
@@ -20,4 +29,18 @@ npm install --save-dev webpack
 
 ```
 webpack
+```
+### A little bit of extra, you could decide to run a dev server in hot mode instead of firing up the app in other local local server.
+#### Installation...
+```
+npm install --save-dev webpack-dev-server 
+```
+#### execution...
+#### Including this piece of code in the package.json
+```
+'scripts': { start : webpack-dev-server --hot }
+```
+#### ANd then run
+```
+npm start
 ```
