@@ -30,7 +30,7 @@ npm install --save-dev babel-plugin-transform-object-rest-spread
 ```
 plugins: [transform-object-rest-spread]
 ```
-##### So you now have the flexibility to use Object rest/spread syntax as much as u desired.
+##### So you now have the flexibility to use Object rest/spread syntax as much as you desired.
 
 ```
 npm install webpack -g
@@ -54,7 +54,7 @@ npm install --save-dev webpack-dev-server
 ```
 'scripts': { start : webpack-dev-server --hot }
 ```
-#### ANd then run
+#### And then run
 ```
 npm start
 ```
